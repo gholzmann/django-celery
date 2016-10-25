@@ -194,5 +194,7 @@ def find_related_module(app, related_name):
         f.close()
     except ImportError:
         return
+    except AttributeError:
+        return
 
     return importlib.import_module('{0}.{1}'.format(app, related_name))
